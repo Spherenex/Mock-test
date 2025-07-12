@@ -1,0 +1,738 @@
+/* 
+  TestInterface.css - Clean, focused test-taking experience
+  Professional design with clear visual hierarchy
+*/
+
+.test-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Instructions Stage - Clear, scannable sections */
+.instructions-container {
+  padding: 2rem;
+}
+
+.instructions-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.instruction-section {
+  margin-bottom: 1.75rem;
+}
+
+.instruction-section h3 {
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.instruction-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.instruction-section li {
+  margin-bottom: 0.625rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #475569;
+}
+
+.instruction-section li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+}
+
+/* Confirmation checkbox styling */
+.confirmation-checkbox {
+  margin: 1.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.confirmation-checkbox input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.confirmation-checkbox label {
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+/* Clean, accessible button */
+.start-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.start-button:not(:disabled):hover {
+  background: #1d4ed8;
+}
+
+.start-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Confirmation Stage */
+.confirmation-container {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.confirmation-icon {
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+}
+
+.confirmation-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.confirmation-container ul {
+  max-width: 400px;
+  margin: 1.5rem auto;
+  text-align: left;
+}
+
+.confirmation-container li {
+  margin-bottom: 0.625rem;
+  color: #475569;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Button styles */
+.back-button {
+  padding: 0.625rem 1.25rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+.confirm-button {
+  padding: 0.625rem 1.25rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.confirm-button:hover {
+  background: #1d4ed8;
+}
+
+/* Test Stage */
+.test-container {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean test header */
+.test-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.section-info h2 {
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.section-info p {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Professional timer display */
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: monospace;
+  font-size: 1.125rem;
+  color: #1e293b;
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.time-warning {
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Progress section with clean indicators */
+.progress-sections {
+  padding: 1rem 1.5rem;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.section-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: capitalize;
+}
+
+.progress-bar {
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Question styling */
+.question-section {
+  flex-grow: 1;
+  padding: 1.75rem 1.5rem;
+}
+
+.question-text {
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* Clean option buttons */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.option-button:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.option-button.selected {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #1e40af;
+}
+
+/* Free text input for code questions */
+.free-text-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 150px;
+}
+
+.free-text-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Navigation buttons */
+.navigation {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  background: #f8fafc;
+}
+
+.next-button, .review-button {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.next-button {
+  background: #2563eb;
+  color: white;
+}
+
+.next-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.next-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.review-button {
+  background: #059669;
+  color: white;
+}
+
+.review-button:hover {
+  background: #047857;
+}
+
+/* Review Stage */
+.review-container {
+  padding: 2rem;
+}
+
+.review-container h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.section-status {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.section-status h3 {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.section-status p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.time-remaining {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  font-size: 1.125rem;
+  color: #1e293b;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.submit-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Violation notification */
+.caught-notification {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 320px;
+  background: white;
+  border-left: 4px solid #ef4444;
+  border-radius: 6px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.caught-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border-bottom: 1px solid #fee2e2;
+}
+
+.caught-icon {
+  color: #ef4444;
+}
+
+.caught-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.caught-content {
+  padding: 1rem;
+}
+
+.caught-message {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.violation-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.violation-label {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.violation-number {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .progress-sections {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .confirmation-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .test-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .progress-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 
+  Additional styles for the TestInterface component
+  To be added to existing TestInterface.css
+*/
+
+/* Violations summary in review screen */
+.violations-summary {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.violation-item {
+  background: #f8fafc;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+}
+
+.violation-item p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.violation-count {
+  font-weight: 600;
+  color: #ef4444;
+}
+
+/* Terminated state styling */
+.terminated-container {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.terminated-icon {
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+.terminated-container h2 {
+  color: #ef4444;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.termination-reason {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.violation-summary {
+  display: inline-block;
+  text-align: left;
+  background: #fee2e2;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.violation-summary p {
+  margin: 0.5rem 0;
+  color: #64748b;
+}
+
+.termination-message {
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.termination-note {
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+/* Caught notification enhancements */
+.caught-notification {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 320px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.caught-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border-bottom: 1px solid #fee2e2;
+}
+
+.caught-icon {
+  color: #ef4444;
+}
+
+.caught-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.caught-content {
+  padding: 1rem;
+}
+
+.caught-message {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.violation-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.violation-label {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.violation-number {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.caught-progress {
+  height: 4px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.caught-progress .progress-fill {
+  height: 100%;
+  background: #ef4444;
+}
+
+/* Animation classes */
+.animate__animated {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+}
+
+.animate__bounceIn {
+  animation-name: bounceIn;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}

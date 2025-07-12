@@ -1,0 +1,317 @@
+/* 
+  AdminDashboard.css - Clean, professional enterprise dashboard
+*/
+
+.admin-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Stats Grid with clean, readable cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Results section with clean, scannable list */
+.results-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.reset-button {
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.reset-button:hover {
+  background: #dc2626;
+}
+
+/* Results list with clear hierarchy */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.result-header:hover {
+  background: #f1f5f9;
+}
+
+/* User info styling */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.top-performer {
+  color: #10b981;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.user-info p {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Result details with clear visual hierarchy */
+.result-details {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.result-details div {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.score {
+  font-weight: 600;
+}
+
+.score-pass {
+  color: #10b981;
+}
+
+.score-fail {
+  color: #ef4444;
+}
+
+/* Expanded result section */
+.result-expanded {
+  padding: 1.25rem;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.stats-summary {
+  margin-bottom: 1.5rem;
+}
+
+.stats-summary p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.correct {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.wrong {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Clean, readable table for questions */
+.questions-list {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.question-table th,
+.question-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.question-table th {
+  background: #f8fafc;
+  font-weight: 500;
+  color: #475569;
+}
+
+.question-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.status-correct {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.status-wrong {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+/* 
+  Additional styles for the AdminDashboard component
+  To be added to existing AdminDashboard.css
+*/
+
+/* Result item modifications */
+.result-item.terminated .result-header {
+  border-left: 4px solid #ef4444;
+}
+
+.terminated-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: #fee2e2;
+  color: #ef4444;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Termination alert */
+.termination-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: #fee2e2;
+  border-radius: 6px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.termination-alert svg {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+/* Admin controls */
+.admin-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle-monitoring-button {
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.toggle-monitoring-button:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .toggle-monitoring-button,
+  .reset-button {
+    width: 100%;
+  }
+}
