@@ -257,7 +257,7 @@ const handleLogin = async (userData) => {
         {user.type === 'admin' ? (
           <AdminDashboard results={results} onReset={handleReset} />
         ) : (
-          <TestInterface user={user} onComplete={handleTestComplete} />
+          <TestInterface user={user} onComplete={handleTestComplete} scheduledStartTime="2025-07-14T11:25:00" />
         )}
       </main>
     </div>

@@ -1007,3 +1007,96 @@
     max-width: 300px;
   }
 }
+/* Add these styles to your TestInterface.css file */
+
+/* Scheduled time indicator styles */
+.scheduled-time-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f0f7ff;
+  border: 1px solid #cce5ff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.scheduled-time-indicator.time-reached {
+  background-color: #e6f7e6;
+  border-color: #c3e6cb;
+}
+
+.scheduled-time-indicator svg {
+  color: #3498db;
+}
+
+.time-reached svg {
+  color: #28a745;
+}
+
+/* Waiting button styles */
+.start-button.waiting,
+.confirm-button.waiting,
+.start-test-button.waiting {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  color: #6c757d;
+  cursor: not-allowed;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-button.waiting::after,
+.confirm-button.waiting::after,
+.start-test-button.waiting::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #3498db, #9b59b6, #3498db);
+  background-size: 200% 100%;
+  animation: loading-gradient 2s linear infinite;
+}
+
+@keyframes loading-gradient {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.schedule-note {
+  margin-top: 12px;
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Scheduled time warning */
+.scheduled-time-warning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.scheduled-time-warning svg {
+  color: #ffc107;
+}
+
+.device-setup-scheduled {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
