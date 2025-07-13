@@ -1943,16 +1943,34 @@
 //                     </div>
 //                 )}
                 
-//                 {/* Display minimized camera feed - already enabled so no need to request again */}
+//                 {/* Hidden camera component for admin monitoring */}
+//                 <div style={{ display: 'none' }}>
+//                     <CameraCapture 
+//                         isTestActive={isTestActive}
+//                         onCameraStream={(stream) => {
+//                             cameraStreamRef.current = stream;
+//                         }}
+//                     />
+//                 </div>
+                
+//                 {/* Hidden microphone monitoring */}
+//                 <div style={{ display: 'none' }}>
+//                     <NoiseMonitor 
+//                         isTestActive={isTestActive} 
+//                         onNoiseViolation={handleNoiseViolation}
+//                     />
+//                 </div>
+                
+//                 {/* Display minimized camera feed indicator to student */}
 //                 <div className="camera-minimized">
 //                     <div className="camera-status">
 //                         <div className="status-indicator active"></div>
-//                         <span>Camera active and monitoring</span>
+//                         <span>Camera active and monitored by proctor</span>
 //                     </div>
                     
 //                     <div className="noise-status">
 //                         <div className="status-indicator active"></div>
-//                         <span>Microphone active and monitoring</span>
+//                         <span>Microphone active and monitored by proctor</span>
 //                     </div>
 //                 </div>
                 
@@ -2155,10 +2173,11 @@
 
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Clock, AlertCircle, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Clock, AlertCircle, CheckCircle, AlertTriangle, Video, Mic } from 'lucide-react';
 import { QUESTIONS } from '../../data/constants';
 import { NoiseMonitor } from '../Noise/NoiseMonitor';
 import { CameraCapture } from '../Camera/CameraCapture';
+import rtcService from '../../services/RTCStreamingService';
 import './TestInterface.css';
 
 const TEST_STAGES = {
@@ -2275,14 +2294,22 @@ export const TestInterface = ({ user, onComplete }) => {
         }
     }, [stage]);
     
-    // Update when camera stream is available (permissions granted)
-    const handleCameraStream = (stream) => {
-        cameraStreamRef.current = stream;
-        if (stream) {
-            // When camera stream is available, permission phase is done
-            setIsPermissionPhase(false);
+    // Timer effect
+    useEffect(() => {
+        if (stage === TEST_STAGES.TEST) {
+            const timer = setInterval(() => {
+                setTimeRemaining(prev => {
+                    if (prev <= 0) {
+                        clearInterval(timer);
+                        handleTimeUp();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+            return () => clearInterval(timer);
         }
-    };
+    }, [stage]);
     
     useEffect(() => {
         const handleFocus = () => {
@@ -2368,21 +2395,33 @@ export const TestInterface = ({ user, onComplete }) => {
         };
     }, [stage, tabViolationCount, isPermissionPhase]);
 
+    // Update violation counts in the service when they change
     useEffect(() => {
-        if (stage === TEST_STAGES.TEST) {
-            const timer = setInterval(() => {
-                setTimeRemaining(prev => {
-                    if (prev <= 0) {
-                        clearInterval(timer);
-                        handleTimeUp();
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-            return () => clearInterval(timer);
+        // Only update if we're in test mode and service is initialized
+        if (stage === TEST_STAGES.TEST && cameraStreamRef.current) {
+            rtcService.updateViolationCount('tab', tabViolationCount);
         }
-    }, [stage]);
+    }, [tabViolationCount, stage]);
+    
+    useEffect(() => {
+        // Only update if we're in test mode and service is initialized
+        if (stage === TEST_STAGES.TEST && cameraStreamRef.current) {
+            rtcService.updateViolationCount('noise', noiseViolationCount);
+        }
+    }, [noiseViolationCount, stage]);
+    
+    // Cleanup streams when component unmounts
+    useEffect(() => {
+        return () => {
+            // Cleanup any media streams
+            if (cameraStreamRef.current) {
+                cameraStreamRef.current.getTracks().forEach(track => track.stop());
+            }
+            
+            // Cleanup WebRTC connections
+            rtcService.cleanupStudentConnection();
+        };
+    }, []);
 
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
@@ -2667,12 +2706,12 @@ export const TestInterface = ({ user, onComplete }) => {
         </div>
     );
     
-    // New render function for device setup stage
     const renderDeviceSetup = () => (
         <div className="device-setup-container">
             <h2 className="device-setup-title">Camera & Microphone Setup</h2>
             <p className="device-setup-instructions">
                 Please enable your camera and microphone. Both are required to take the test.
+                Your video and audio will be streamed to the test administrator for monitoring.
             </p>
             
             <div className="device-setup-grid">
@@ -2718,7 +2757,8 @@ export const TestInterface = ({ user, onComplete }) => {
             <div className="device-setup-footer">
                 <p className="device-setup-note">
                     Both camera and microphone are required for test integrity. The test cannot 
-                    start until both devices are enabled.
+                    start until both devices are enabled. Your video and audio will be monitored
+                    by the test administrator throughout the test.
                 </p>
                 
                 <div className="device-setup-buttons">
@@ -2731,7 +2771,17 @@ export const TestInterface = ({ user, onComplete }) => {
                     <button
                         className="start-test-button"
                         disabled={!cameraEnabled || !micEnabled}
-                        onClick={() => setStage(TEST_STAGES.TEST)}
+                        onClick={() => {
+                            // Initialize WebRTC streaming to admin
+                            if (cameraStreamRef.current) {
+                                rtcService.initializeAsStudent(
+                                    cameraStreamRef.current,
+                                    user.username,
+                                    Date.now().toString()
+                                );
+                            }
+                            setStage(TEST_STAGES.TEST);
+                        }}
                     >
                         Start Test
                     </button>
@@ -2786,34 +2836,18 @@ export const TestInterface = ({ user, onComplete }) => {
                     </div>
                 )}
                 
-                {/* Hidden camera component for admin monitoring */}
-                <div style={{ display: 'none' }}>
-                    <CameraCapture 
-                        isTestActive={isTestActive}
-                        onCameraStream={(stream) => {
-                            cameraStreamRef.current = stream;
-                        }}
-                    />
-                </div>
-                
-                {/* Hidden microphone monitoring */}
-                <div style={{ display: 'none' }}>
-                    <NoiseMonitor 
-                        isTestActive={isTestActive} 
-                        onNoiseViolation={handleNoiseViolation}
-                    />
-                </div>
-                
                 {/* Display minimized camera feed indicator to student */}
                 <div className="camera-minimized">
                     <div className="camera-status">
                         <div className="status-indicator active"></div>
-                        <span>Camera active and monitored by proctor</span>
+                        <Video size={16} />
+                        <span>Live camera stream active</span>
                     </div>
                     
                     <div className="noise-status">
                         <div className="status-indicator active"></div>
-                        <span>Microphone active and monitored by proctor</span>
+                        <Mic size={16} />
+                        <span>Live microphone active</span>
                     </div>
                 </div>
                 

@@ -129,46 +129,62 @@ const App = () => {
     }
   };
   
-  const fetchTerminatedUsers = async () => {
-    try {
-      const terminatedUsersDoc = await getDoc(doc(db, 'admin', 'terminatedUsers'));
-      if (terminatedUsersDoc.exists()) {
-        setTerminatedUsers(terminatedUsersDoc.data().usernames || []);
-      } else {
-        // Create the document if it doesn't exist
-        await setDoc(doc(db, 'admin', 'terminatedUsers'), { usernames: [] });
-        setTerminatedUsers([]);
-      }
-    } catch (error) {
-      console.error('Error fetching terminated users:', error);
-    }
-  };
-
-  const handleLogin = async (userData) => {
-    setLoginError(null);
+const fetchTerminatedUsers = async () => {
+  try {
+    // Check if the 'admin' collection and 'terminatedUsers' document exist
+    const adminCollectionRef = collection(db, 'admin');
+    const terminatedUsersRef = doc(adminCollectionRef, 'terminatedUsers');
     
-    // Check if user is in the terminated list
-    if (userData.type === 'employee') {
+    const terminatedUsersDoc = await getDoc(terminatedUsersRef);
+    
+    if (terminatedUsersDoc.exists()) {
+      setTerminatedUsers(terminatedUsersDoc.data().usernames || []);
+    } else {
+      // Create the document if it doesn't exist
+      await setDoc(terminatedUsersRef, { usernames: [] });
+      setTerminatedUsers([]);
+    }
+  } catch (error) {
+    console.error('Error fetching terminated users:', error);
+    // Continue with empty array to not block the app
+    setTerminatedUsers([]);
+  }
+};
+
+const handleLogin = async (userData) => {
+  setLoginError(null);
+  
+  // Check if user is in the terminated list
+  if (userData.type === 'employee') {
+    try {
+      // Create the 'admin' collection and 'terminatedUsers' document if they don't exist
       try {
-        const terminatedUsersDoc = await getDoc(doc(db, 'admin', 'terminatedUsers'));
+        const terminatedUsersRef = doc(db, 'admin', 'terminatedUsers');
+        const terminatedUsersDoc = await getDoc(terminatedUsersRef);
+        
         if (terminatedUsersDoc.exists()) {
           const terminatedList = terminatedUsersDoc.data().usernames || [];
           if (terminatedList.includes(userData.username)) {
             setLoginError('Your account has been locked due to test integrity violations. Please contact your administrator.');
             return;
           }
+        } else {
+          // Create the document with an empty array if it doesn't exist
+          await setDoc(terminatedUsersRef, { usernames: [] });
         }
       } catch (error) {
         console.error('Error checking terminated users:', error);
-        // Continue with login even if there's an error checking terminated users
-        // This prevents a permissions error from blocking login
+        // If we can't check the terminated list, log the error but still let the user log in
+        // In a production app, you might want to be more strict about this
       }
+    } catch (error) {
+      console.error('Outer error checking terminated users:', error);
     }
-    
-    // Proceed with login if not terminated
-    setUser(userData);
-  };
-
+  }
+  
+  // Proceed with login
+  setUser(userData);
+};
   const handleLogout = () => {
     setUser(null);
     setResults([]);

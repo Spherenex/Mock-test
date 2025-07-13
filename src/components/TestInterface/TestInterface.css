@@ -1094,3 +1094,368 @@
     width: 100%;
   }
 }
+/* 
+  Additional styles for the TestInterface component
+  To be added to existing TestInterface.css
+*/
+
+/* Camera minimized display for test phase */
+.camera-minimized {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.camera-status, .noise-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #94a3b8;
+}
+
+.status-indicator.active {
+  background-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Device setup container */
+.device-setup-container {
+  padding: 2rem;
+}
+
+.device-setup-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.device-setup-instructions {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.device-setup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.device-setup-item {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.device-setup-item h3 {
+  padding: 1rem;
+  margin: 0;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
+.device-preview {
+  padding: 1rem;
+}
+
+.device-status {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.status-enabled {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.status-disabled {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.device-setup-footer {
+  margin-top: 2rem;
+}
+
+.device-setup-note {
+  text-align: center;
+  padding: 1rem;
+  background: #eff6ff;
+  border-radius: 6px;
+  color: #1e40af;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+
+.device-setup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.start-test-button {
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.start-test-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.start-test-button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Violations summary in review screen */
+.violations-summary {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.violation-item {
+  background: #f8fafc;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+}
+
+.violation-item p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.violation-count {
+  font-weight: 600;
+  color: #ef4444;
+}
+
+/* Terminated state styling */
+.terminated-container {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.terminated-icon {
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+.terminated-container h2 {
+  color: #ef4444;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.termination-reason {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.violation-summary {
+  display: inline-block;
+  text-align: left;
+  background: #fee2e2;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.violation-summary p {
+  margin: 0.5rem 0;
+  color: #64748b;
+}
+
+.termination-message {
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.termination-note {
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+/* Caught notification enhancements */
+.caught-notification {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 320px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.caught-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border-bottom: 1px solid #fee2e2;
+}
+
+.caught-icon {
+  color: #ef4444;
+}
+
+.caught-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.caught-content {
+  padding: 1rem;
+}
+
+.caught-message {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.violation-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.violation-label {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.violation-number {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.caught-progress {
+  height: 4px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.caught-progress .progress-fill {
+  height: 100%;
+  background: #ef4444;
+}
+
+/* Animation classes */
+.animate__animated {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+}
+
+.animate__bounceIn {
+  animation-name: bounceIn;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Responsive adjustments for device setup */
+@media (max-width: 768px) {
+  .device-setup-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .device-setup-buttons {
+    flex-direction: column;
+  }
+  
+  .device-setup-buttons button {
+    width: 100%;
+  }
+}
