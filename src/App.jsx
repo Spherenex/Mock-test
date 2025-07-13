@@ -160,6 +160,8 @@ const App = () => {
         }
       } catch (error) {
         console.error('Error checking terminated users:', error);
+        // Continue with login even if there's an error checking terminated users
+        // This prevents a permissions error from blocking login
       }
     }
     
