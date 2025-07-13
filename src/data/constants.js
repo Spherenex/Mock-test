@@ -61,7 +61,7 @@ export const DEFAULT_CREDENTIALS = {
     { username: 'rishirajp99@gmail.com', password: 'Rishiraj@123', name: 'RISHIRAJ P' },
     { username: 'kowsalyamdece@gmail.com', password: 'Kowsalya@123', name: 'KOWSALYA M' },
     { username: 'madhavaraj714@gmail.com', password: 'Madhava@123', name: 'MADHAVA RAJ B' },
-    { username: 'Test1', password: 'test123', name: 'Test' },
+    { username: 'Test', password: 'test123', name: 'Test' },
   ],
 };
 
@@ -386,291 +386,313 @@ export const DEFAULT_CREDENTIALS = {
 // ];
 
 export const QUESTIONS = [
-  // Technical Knowledge - Questions 1-10
+  // C Programming - Questions 1-10
   {
     id: 1,
     question: 'Which header file is required for using printf() function?',
     options: ['iostream.h', 'stdio.h', 'conio.h', 'stdlib.h'],
     correctAnswer: 1,
-    section: 'technical'
   },
   {
     id: 2,
     question: 'What will sizeof(char) return in C?',
     options: ['1', '2', '4', 'Depends on compiler'],
     correctAnswer: 0,
-    section: 'technical'
   },
   {
     id: 3,
     question: 'What is the correct syntax to declare a pointer to an integer?',
     options: ['int ptr;', 'int *ptr;', 'pointer int ptr;', 'int ptr*;'],
     correctAnswer: 1,
-    section: 'technical'
   },
   {
     id: 4,
     question: 'Which of the following is not a valid C data type?',
     options: ['enum', 'union', 'class', 'struct'],
     correctAnswer: 2,
-    section: 'technical'
   },
   {
     id: 5,
     question: 'Which function is used to allocate memory dynamically in C?',
     options: ['alloc()', 'malloc()', 'realloc()', 'calloc()'],
     correctAnswer: 1,
-    section: 'technical'
   },
   {
     id: 6,
-    question: 'What operator is used for memory allocation in C++?',
-    options: ['alloc', 'malloc', 'new', 'create'],
-    correctAnswer: 2,
-    section: 'technical'
+    question: 'What does the modulus operator % do in C?',
+    options: ['Divides two numbers', 'Returns remainder', 'Returns quotient', 'Returns percentage'],
+    correctAnswer: 1,
   },
   {
     id: 7,
-    question: 'What is a virtual function in C++?',
-    options: ['A function that can\'t be overridden', 'A function that must be implemented', 'A function declared in a base class that can be overridden', 'A function without a body'],
+    question: 'How do you define a constant in C?',
+    options: ['const int MAX = 100;', '#define MAX 100', 'Both A and B', 'final int MAX = 100;'],
     correctAnswer: 2,
-    section: 'technical'
   },
   {
     id: 8,
-    question: 'Which keyword is used to define a namespace in C++?',
-    options: ['space', 'namespace', 'define', 'using'],
+    question: 'What is the correct way to access the third element of an array named "numbers"?',
+    options: ['numbers[3]', 'numbers[2]', 'numbers(2)', 'numbers.3'],
     correctAnswer: 1,
-    section: 'technical'
   },
   {
     id: 9,
-    question: 'Which of the following is a C++ specific comment style?',
-    options: ['/* */', '//', '#comment', '--'],
-    correctAnswer: 1,
-    section: 'technical'
+    question: 'How do you terminate a do-while loop in C?',
+    options: ['break;', 'exit;', 'terminate;', 'return;'],
+    correctAnswer: 0,
   },
   {
     id: 10,
-    question: 'What does the scope resolution operator (::) do in C++?',
-    options: ['Inherits a class', 'Accesses a global variable', 'Compares values', 'Creates a namespace'],
-    correctAnswer: 1,
-    section: 'technical'
+    question: 'What is the purpose of a structure in C?',
+    options: ['To store multiple variables of the same type', 'To define functions', 'To store related variables of different data types', 'To perform mathematical operations'],
+    correctAnswer: 2,
   },
 
-  // Aptitude Assessment - Questions 11-20
+  // C++ Programming - Questions 11-20
   {
     id: 11,
-    question: 'If a car travels 300 kilometers in 4 hours, what is its average speed?',
-    options: ['60 km/h', '70 km/h', '75 km/h', '80 km/h'],
+    question: 'What operator is used for memory allocation in C++?',
+    options: ['alloc', 'malloc', 'new', 'create'],
     correctAnswer: 2,
-    section: 'aptitude'
   },
   {
     id: 12,
-    question: 'A shopkeeper sells an item at 20% profit. If the cost price is $250, what is the selling price?',
-    options: ['$270', '$280', '$300', '$320'],
+    question: 'What is a virtual function in C++?',
+    options: ['A function that can\'t be overridden', 'A function that must be implemented', 'A function declared in a base class that can be overridden', 'A function without a body'],
     correctAnswer: 2,
-    section: 'aptitude'
   },
   {
     id: 13,
-    question: 'If 8 workers can complete a task in 12 days, how many days will it take for 6 workers to complete the same task?',
-    options: ['9 days', '16 days', '18 days', '24 days'],
+    question: 'Which keyword is used to define a namespace in C++?',
+    options: ['space', 'namespace', 'define', 'using'],
     correctAnswer: 1,
-    section: 'aptitude'
   },
   {
     id: 14,
-    question: 'What is the next number in the sequence: 2, 4, 8, 16, 32, ...?',
-    options: ['36', '48', '64', '128'],
-    correctAnswer: 2,
-    section: 'aptitude'
+    question: 'Which of the following is a C++ specific comment style?',
+    options: ['/* */', '//', '#comment', '--'],
+    correctAnswer: 1,
   },
   {
     id: 15,
-    question: 'If the ratio of boys to girls in a class is 3:5 and there are 24 boys, how many students are there in total?',
-    options: ['40', '56', '64', '80'],
-    correctAnswer: 2,
-    section: 'aptitude'
+    question: 'What does the scope resolution operator (::) do in C++?',
+    options: ['Inherits a class', 'Accesses a global variable', 'Compares values', 'Creates a namespace'],
+    correctAnswer: 1,
   },
   {
     id: 16,
-    question: 'A train traveling at 60 km/h takes 15 minutes to pass through a tunnel. What is the length of the tunnel?',
-    options: ['10 km', '15 km', '20 km', '25 km'],
+    question: 'Which keyword is used to prevent a class from being inherited?',
+    options: ['final', 'sealed', 'locked', 'static'],
     correctAnswer: 0,
-    section: 'aptitude'
   },
   {
     id: 17,
-    question: 'What is the compound interest on $1000 at 10% per annum for 2 years?',
-    options: ['$100', '$200', '$210', '$220'],
-    correctAnswer: 2,
-    section: 'aptitude'
+    question: 'What feature allows a derived class to have the same function name as its base class?',
+    options: ['Overloading', 'Overriding', 'Hiding', 'Shadowing'],
+    correctAnswer: 1,
   },
   {
     id: 18,
-    question: 'If the area of a square is 64 square meters, what is its perimeter?',
-    options: ['16 meters', '24 meters', '32 meters', '64 meters'],
-    correctAnswer: 2,
-    section: 'aptitude'
+    question: 'Which operator is used for dynamic casting in C++?',
+    options: ['dynamic_cast', 'cast', 'reinterpret_cast', 'const_cast'],
+    correctAnswer: 0,
   },
   {
     id: 19,
-    question: 'A mixture contains alcohol and water in the ratio 1:3. If 10 liters of water is added, the ratio becomes 1:5. How much alcohol is in the original mixture?',
-    options: ['5 liters', '10 liters', '15 liters', '20 liters'],
-    correctAnswer: 0,
-    section: 'aptitude'
+    question: 'What STL container provides constant time insertion and deletion of elements?',
+    options: ['vector', 'deque', 'list', 'map'],
+    correctAnswer: 2,
   },
   {
     id: 20,
-    question: 'If x² + y² = 25 and x + y = 7, what is the value of xy?',
-    options: ['6', '12', '16', '24'],
-    correctAnswer: 1,
-    section: 'aptitude'
+    question: 'What does STL stand for in C++?',
+    options: ['Standard Template Language', 'Standard Type Library', 'Standard Template Library', 'System Type List'],
+    correctAnswer: 2,
   },
 
-  // Logical Reasoning - Questions 21-30
+  // Arduino Uno - Questions 21-30
   {
     id: 21,
-    question: 'If all roses are flowers and some flowers fade quickly, which statement must be true?',
-    options: ['All roses fade quickly', 'Some roses fade quickly', 'No roses fade quickly', 'All flowers are roses'],
+    question: 'Which function must be present in every Arduino sketch?',
+    options: ['main()', 'setup() and loop()', 'initialize()', 'begin()'],
     correctAnswer: 1,
-    section: 'logical'
   },
   {
     id: 22,
-    question: 'What comes next in the sequence: J, F, M, A, M, J, ...?',
-    options: ['S', 'O', 'J', 'A'],
+    question: 'What is the input voltage range for Arduino Uno?',
+    options: ['3.3V-5V', '5V-12V', '7V-12V', '9V only'],
     correctAnswer: 2,
-    section: 'logical'
   },
   {
     id: 23,
-    question: 'If CAT is coded as 312, how would DOG be coded?',
-    options: ['413', '423', '415', '435'],
+    question: 'What command sends data to the serial monitor?',
+    options: ['Serial.print()', 'Console.log()', 'Serial.begin()', 'Serial.read()'],
     correctAnswer: 0,
-    section: 'logical'
   },
   {
     id: 24,
-    question: 'Which word does NOT belong with the others?',
-    options: ['Rectangle', 'Triangle', 'Circle', 'Oval'],
+    question: 'Which function is used to configure digital pins as input or output?',
+    options: ['digitalWrite()', 'pinMode()', 'analogWrite()', 'pinConfig()'],
     correctAnswer: 1,
-    section: 'logical'
   },
   {
     id: 25,
-    question: 'If A = 1, B = 2, C = 3, etc., what is the value of LOGIC?',
-    options: ['49', '50', '51', '52'],
-    correctAnswer: 0,
-    section: 'logical'
+    question: 'What is the range of values returned by analogRead()?',
+    options: ['0-255', '0-1023', '0-5000', '0-1'],
+    correctAnswer: 1,
   },
   {
     id: 26,
-    question: 'All elephants are gray. Some animals are gray. Therefore:',
-    options: ['All animals are elephants', 'All gray animals are elephants', 'Some animals are elephants', 'No valid conclusion'],
+    question: 'What is the frequency of the PWM signals on most Arduino Uno pins?',
+    options: ['60 Hz', '500 Hz', '1000 Hz', '~490 Hz'],
     correctAnswer: 3,
-    section: 'logical'
   },
   {
     id: 27,
-    question: 'What number is missing: 1, 4, 9, 16, 25, ?',
-    options: ['30', '36', '42', '49'],
+    question: 'What command sets the communication speed with the computer?',
+    options: ['Serial.speed()', 'Serial.begin()', 'Serial.baud()', 'Serial.rate()'],
     correctAnswer: 1,
-    section: 'logical'
   },
   {
     id: 28,
-    question: 'If FRIEND is coded as GSJFOE, how is CANDLE coded?',
-    options: ['DBEOMF', 'DCOFMF', 'EQPFNG', 'DBOEMF'],
-    correctAnswer: 3,
-    section: 'logical'
+    question: 'What is the purpose of the millis() function?',
+    options: ['Delays program execution', 'Returns milliseconds since program started', 'Controls motor speed', 'Measures voltage in millivolts'],
+    correctAnswer: 1,
   },
   {
     id: 29,
-    question: 'Which figure completes the pattern?',
-    options: ['Square', 'Triangle', 'Circle', 'Pentagon'],
-    correctAnswer: 0,
-    section: 'logical'
+    question: 'How many EEPROM memory does Arduino Uno have?',
+    options: ['256 bytes', '512 bytes', '1 KB', '32 KB'],
+    correctAnswer: 2,
   },
   {
     id: 30,
-    question: 'If today is Tuesday, what day will it be after 100 days?',
-    options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
-    correctAnswer: 2,
-    section: 'logical'
+    question: 'What type of USB connector does Arduino Uno use?',
+    options: ['USB-C', 'Micro USB', 'Mini USB', 'USB-B'],
+    correctAnswer: 3,
   },
 
-  // Personality Assessment - Questions 31-40
+  // ESP8266 - Questions 31-40
   {
     id: 31,
-    question: 'When faced with a challenging problem, I usually:',
-    options: ['Break it down into smaller parts', 'Ask others for help immediately', 'Research similar problems online', 'Try different approaches through trial and error'],
-    correctAnswer: 0,
-    section: 'personality'
+    question: 'What programming languages can be used with ESP8266?',
+    options: ['Only C', 'C and Assembly', 'C/C++ and Lua', 'Only Python'],
+    correctAnswer: 2,
   },
   {
     id: 32,
-    question: 'In a team setting, I prefer to:',
-    options: ['Take the lead and delegate tasks', 'Contribute ideas but let others lead', 'Focus on my individual responsibilities', 'Mediate between different opinions'],
-    correctAnswer: 0,
-    section: 'personality'
+    question: 'What is the maximum number of TCP connections supported by ESP8266?',
+    options: ['1', '5', '10', 'Unlimited'],
+    correctAnswer: 1,
   },
   {
     id: 33,
-    question: 'When learning something new, I typically:',
-    options: ['Read theoretical materials first', 'Watch someone else do it', 'Jump in and learn by doing', 'Talk through the process with others'],
-    correctAnswer: 2,
-    section: 'personality'
+    question: 'Which command checks if the ESP8266 is connected to a WiFi network?',
+    options: ['WiFi.status()', 'WiFi.connected()', 'WiFi.isConnected()', 'WiFi.check()'],
+    correctAnswer: 0,
   },
   {
     id: 34,
-    question: 'When receiving criticism, I usually:',
-    options: ['Take it personally and feel hurt', 'Analyze it objectively for improvement', 'Defend my actions or decisions', 'Ignore it if I disagree'],
+    question: 'What is NodeMCU in relation to ESP8266?',
+    options: ['A programming language', 'A firmware and development board', 'A compiler', 'A protocol'],
     correctAnswer: 1,
-    section: 'personality'
   },
   {
     id: 35,
-    question: 'In a social gathering, I tend to:',
-    options: ['Talk to as many people as possible', 'Stick with people I already know', 'Find one or two people for deeper conversations', 'Observe others more than participate'],
+    question: 'Which function is used to turn on the access point mode?',
+    options: ['WiFi.enableAP()', 'WiFi.APbegin()', 'WiFi.softAP()', 'WiFi.startAP()'],
     correctAnswer: 2,
-    section: 'personality'
   },
   {
     id: 36,
-    question: 'When making decisions, I typically:',
-    options: ['Go with my gut feeling', 'Analyze all possible outcomes', 'Consider how it affects others', 'Follow established procedures'],
-    correctAnswer: 1,
-    section: 'personality'
+    question: 'What is the default baud rate for ESP8266 serial communication?',
+    options: ['9600', '57600', '74880', '115200'],
+    correctAnswer: 3,
   },
   {
     id: 37,
-    question: 'When dealing with deadlines, I:',
-    options: ['Complete tasks well ahead of time', 'Work steadily to finish just in time', 'Work intensely as the deadline approaches', 'Often need extensions'],
-    correctAnswer: 0,
-    section: 'personality'
+    question: 'Which library is used for Over-The-Air (OTA) updates?',
+    options: ['ESP8266WiFi', 'ArduinoOTA', 'ESP8266Update', 'WiFiManager'],
+    correctAnswer: 1,
   },
   {
     id: 38,
-    question: 'My workspace is usually:',
-    options: ['Very organized and tidy', 'Somewhat organized with some clutter', 'Disorganized but I know where things are', 'Very messy and chaotic'],
-    correctAnswer: 1,
-    section: 'personality'
+    question: 'What is the maximum GPIO pins available on ESP-12E module?',
+    options: ['8', '11', '13', '16'],
+    correctAnswer: 3,
   },
   {
     id: 39,
-    question: 'When plans change unexpectedly, I typically:',
-    options: ['Get frustrated and resist the change', 'Adapt quickly and move on', 'Need time to adjust but eventually accept it', 'Try to return to the original plan'],
+    question: 'Which ESP8266 command is used to get the MAC address?',
+    options: ['WiFi.getMAC()', 'WiFi.macAddress()', 'ESP.getMacAddress()', 'ESP.getMAC()'],
     correctAnswer: 1,
-    section: 'personality'
   },
   {
     id: 40,
-    question: 'In terms of work-life balance, I prioritize:',
-    options: ['Work achievements over personal time', 'Equal importance to both work and personal life', 'Personal life over work responsibilities', 'Varies depending on current priorities'],
+    question: 'What is Deep Sleep mode used for in ESP8266?',
+    options: ['Secure programming', 'Fast processing', 'Power saving', 'Memory optimization'],
+    correctAnswer: 2,
+  },
+
+  // Sensors - Questions 41-50
+  {
+    id: 41,
+    question: 'Which sensor would you use to detect human movement in a room?',
+    options: ['LDR', 'DHT11', 'PIR', 'BMP180'],
+    correctAnswer: 2,
+  },
+  {
+    id: 42,
+    question: 'What does BME280 sensor measure?',
+    options: ['Light intensity', 'Temperature, humidity, and pressure', 'Distance', 'Heart rate'],
     correctAnswer: 1,
-    section: 'personality'
+  },
+  {
+    id: 43,
+    question: 'Which of these is NOT typically measured by an IMU sensor?',
+    options: ['Acceleration', 'Angular velocity', 'Temperature', 'Magnetic field'],
+    correctAnswer: 2,
+  },
+  {
+    id: 44,
+    question: 'Which protocol is commonly used by digital temperature sensors?',
+    options: ['I2C', 'Analog', 'PWM', 'CAN'],
+    correctAnswer: 0,
+  },
+  {
+    id: 45,
+    question: 'What is the principle behind an ultrasonic distance sensor?',
+    options: ['Infrared reflection', 'Echo time measurement', 'Resistive changes', 'Capacitive changes'],
+    correctAnswer: 1,
+  },
+  {
+    id: 46,
+    question: 'Which gas can typically NOT be detected by an MQ-series gas sensor?',
+    options: ['Carbon Monoxide', 'Methane', 'Oxygen', 'Propane'],
+    correctAnswer: 2,
+  },
+  {
+    id: 47,
+    question: 'What does a photodiode primarily detect?',
+    options: ['Temperature', 'Pressure', 'Light', 'Sound'],
+    correctAnswer: 2,
+  },
+  {
+    id: 48,
+    question: 'What type of output does a digital sensor typically provide?',
+    options: ['Voltage between 0-5V', 'Current between 4-20mA', 'HIGH or LOW logic level', 'Resistance value'],
+    correctAnswer: 2,
+  },
+  {
+    id: 49,
+    question: 'What is the working principle of a capacitive touch sensor?',
+    options: ['Heat detection', 'Change in capacitance', 'Mechanical pressure', 'Light interruption'],
+    correctAnswer: 1,
+  },
+  {
+    id: 50,
+    question: 'Which sensor would be best to detect water level in a tank?',
+    options: ['Ultrasonic sensor', 'PIR sensor', 'LDR sensor', 'Gas sensor'],
+    correctAnswer: 0,
   },
 ];

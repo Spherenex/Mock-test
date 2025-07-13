@@ -229,6 +229,7 @@
   padding: 1rem 1.5rem;
   background: white;
   display: grid;
+  display: none ;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   border-bottom: 1px solid #e2e8f0;
