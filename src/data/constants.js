@@ -61,326 +61,616 @@ export const DEFAULT_CREDENTIALS = {
     { username: 'rishirajp99@gmail.com', password: 'Rishiraj@123', name: 'RISHIRAJ P' },
     { username: 'kowsalyamdece@gmail.com', password: 'Kowsalya@123', name: 'KOWSALYA M' },
     { username: 'madhavaraj714@gmail.com', password: 'Madhava@123', name: 'MADHAVA RAJ B' },
-    { username: 'Test', password: 'test123', name: 'Test' },
+    { username: 'Test1', password: 'test123', name: 'Test' },
   ],
 };
 
+// export const QUESTIONS = [
+//   // Basic HTML - Questions 1-10
+//   {
+//     id: 1,
+//     question: 'What does HTML stand for?',
+//     options: [
+//       'Hyper Text Markup Language',
+//       'High Text Markup Language',
+//       'Hyper Tabular Markup Language',
+//       'Home Tool Markup Language',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 2,
+//     question: 'Which tag is used to create a hyperlink in HTML?',
+//     options: ['<link>', '<a>', '<href>', '<url>'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 3,
+//     question: 'What is the correct HTML tag for the largest heading?',
+//     options: ['<h6>', '<h1>', '<heading>', '<header>'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 4,
+//     question: 'Which HTML tag is used to display an image?',
+//     options: ['<img>', '<picture>', '<image>', '<src>'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 5,
+//     question: 'What attribute specifies the URL of an image in HTML?',
+//     options: ['href', 'src', 'alt', 'link'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 6,
+//     question: 'Which HTML tag is used to create an unordered list?',
+//     options: ['<ol>', '<ul>', '<li>', '<list>'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 7,
+//     question: 'What is the purpose of the <br> tag in HTML?',
+//     options: [
+//       'Bold text',
+//       'Line break',
+//       'Blockquote',
+//       'Background reset',
+//     ],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 8,
+//     question: 'Which HTML tag defines the main content of a webpage?',
+//     options: ['<main>', '<body>', '<section>', '<div>'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 9,
+//     question: 'What attribute is used to provide a unique identifier to an HTML element?',
+//     options: ['class', 'id', 'name', 'type'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 10,
+//     question: 'Which HTML tag is used to include an external JavaScript file?',
+//     options: ['<script>', '<link>', '<js>', '<code>'],
+//     correctAnswer: 0,
+//   },
+
+//   // Basic CSS - Questions 11-20
+//   {
+//     id: 11,
+//     question: 'Which CSS property changes the text color of an element?',
+//     options: ['color', 'font-color', 'text-color', 'background-color'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 12,
+//     question: 'How do you apply a CSS style to all <p> elements?',
+//     options: ['#p', '.p', 'p', '*p'],
+//     correctAnswer: 2,
+//   },
+//   {
+//     id: 13,
+//     question: 'Which CSS property sets the background color?',
+//     options: [
+//       'color',
+//       'background-color',
+//       'bg-color',
+//       'background-style',
+//     ],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 14,
+//     question: 'How do you center text horizontally in CSS?',
+//     options: [
+//       'text-align: center;',
+//       'align: center;',
+//       'center: text;',
+//       'text-position: center;',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 15,
+//     question: 'Which CSS property controls the space between elements?',
+//     options: ['padding', 'margin', 'border', 'spacing'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 16,
+//     question: 'What does the CSS "display: block;" property do?',
+//     options: [
+//       'Hides the element',
+//       'Makes it inline',
+//       'Takes full width',
+//       'Floats the element',
+//     ],
+//     correctAnswer: 2,
+//   },
+//   {
+//     id: 17,
+//     question: 'How do you select elements with a specific class in CSS?',
+//     options: ['#class', '.class', 'class', '*class'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 18,
+//     question: 'Which CSS unit represents a percentage of the parent element?',
+//     options: ['px', 'em', '%', 'vw'],
+//     correctAnswer: 2,
+//   },
+//   {
+//     id: 19,
+//     question: 'What property sets the font family in CSS?',
+//     options: [
+//       'font-family',
+//       'font-style',
+//       'font-type',
+//       'text-family',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 20,
+//     question: 'How do you make an element invisible in CSS?',
+//     options: [
+//       'visibility: hidden;',
+//       'display: none;',
+//       'opacity: 0;',
+//       'All of the above',
+//     ],
+//     correctAnswer: 3,
+//   },
+
+//   // Basic JavaScript - Questions 21-30
+//   {
+//     id: 21,
+//     question: 'How do you write a comment in JavaScript?',
+//     options: [
+//       '<!-- Comment -->',
+//       '// Comment',
+//       '# Comment',
+//       '/* Comment */',
+//     ],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 22,
+//     question: 'Which keyword declares a variable in JavaScript?',
+//     options: ['var', 'int', 'string', 'declare'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 23,
+//     question: 'What is the output of console.log(5 + "5");?',
+//     options: ['10', '55', '5', 'Error'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 24,
+//     question: 'How do you check the length of a string in JavaScript?',
+//     options: ['str.length', 'str.size', 'str.count', 'str.len'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 25,
+//     question: 'Which operator checks for equality in value and type in JavaScript?',
+//     options: ['=', '==', '===', '!='],
+//     correctAnswer: 2,
+//   },
+//   {
+//     id: 26,
+//     question: 'What is the correct syntax for an if statement in JavaScript?',
+//     options: [
+//       'if (x > 5) { }',
+//       'if x > 5 { }',
+//       'if (x > 5) then { }',
+//       'if {x > 5}',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 27,
+//     question: 'How do you create a function in JavaScript?',
+//     options: [
+//       'function myFunc() { }',
+//       'func myFunc() { }',
+//       'myFunc() { }',
+//       'function: myFunc() { }',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 28,
+//     question: 'What method adds an element to the end of an array in JavaScript?',
+//     options: ['push()', 'pop()', 'shift()', 'unshift()'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 29,
+//     question: 'How do you access the first element of an array in JavaScript?',
+//     options: ['array[0]', 'array[1]', 'array.first', 'array.start'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 30,
+//     question: 'What will console.log(typeof "hello"); return?',
+//     options: ['number', 'string', 'boolean', 'object'],
+//     correctAnswer: 1,
+//   },
+
+//   // Basic Web Concepts (HTML/CSS/JS Mix) - Questions 31-40
+//   {
+//     id: 31,
+//     question: 'Which tag embeds CSS directly in an HTML file?',
+//     options: ['<style>', '<css>', '<script>', '<link>'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 32,
+//     question: 'How do you change an element’s text in JavaScript?',
+//     options: [
+//       'element.innerHTML',
+//       'element.text',
+//       'element.value',
+//       'element.content',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 33,
+//     question: 'What CSS property adds space inside an element?',
+//     options: ['margin', 'padding', 'border', 'gap'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 34,
+//     question: 'Which HTML attribute specifies a text description for an image?',
+//     options: ['src', 'alt', 'title', 'desc'],
+//     correctAnswer: 1,
+//   },
+//   {
+//     id: 35,
+//     question: 'What JavaScript method displays a popup with a message?',
+//     options: ['alert()', 'prompt()', 'confirm()', 'log()'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 36,
+//     question: 'Which CSS property aligns items vertically?',
+//     options: [
+//       'vertical-align',
+//       'align-items',
+//       'text-align',
+//       'position',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 37,
+//     question: 'How do you get an element by its ID in JavaScript?',
+//     options: [
+//       'document.getElementById()',
+//       'document.querySelector()',
+//       'document.getElementsByClass()',
+//       'document.id()',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 38,
+//     question: 'Which HTML tag creates a table row?',
+//     options: ['<tr>', '<td>', '<th>', '<table>'],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 39,
+//     question: 'What CSS value makes text italic?',
+//     options: [
+//       'font-style: italic;',
+//       'font-weight: italic;',
+//       'text-style: italic;',
+//       'style: italic;',
+//     ],
+//     correctAnswer: 0,
+//   },
+//   {
+//     id: 40,
+//     question: 'What will console.log(10 > 5); return in JavaScript?',
+//     options: ['true', 'false', '10', '5'],
+//     correctAnswer: 0,
+//   },
+// ];
+
 export const QUESTIONS = [
-  // Basic HTML - Questions 1-10
+  // Technical Knowledge - Questions 1-10
   {
     id: 1,
-    question: 'What does HTML stand for?',
-    options: [
-      'Hyper Text Markup Language',
-      'High Text Markup Language',
-      'Hyper Tabular Markup Language',
-      'Home Tool Markup Language',
-    ],
-    correctAnswer: 0,
+    question: 'Which header file is required for using printf() function?',
+    options: ['iostream.h', 'stdio.h', 'conio.h', 'stdlib.h'],
+    correctAnswer: 1,
+    section: 'technical'
   },
   {
     id: 2,
-    question: 'Which tag is used to create a hyperlink in HTML?',
-    options: ['<link>', '<a>', '<href>', '<url>'],
-    correctAnswer: 1,
+    question: 'What will sizeof(char) return in C?',
+    options: ['1', '2', '4', 'Depends on compiler'],
+    correctAnswer: 0,
+    section: 'technical'
   },
   {
     id: 3,
-    question: 'What is the correct HTML tag for the largest heading?',
-    options: ['<h6>', '<h1>', '<heading>', '<header>'],
+    question: 'What is the correct syntax to declare a pointer to an integer?',
+    options: ['int ptr;', 'int *ptr;', 'pointer int ptr;', 'int ptr*;'],
     correctAnswer: 1,
+    section: 'technical'
   },
   {
     id: 4,
-    question: 'Which HTML tag is used to display an image?',
-    options: ['<img>', '<picture>', '<image>', '<src>'],
-    correctAnswer: 0,
+    question: 'Which of the following is not a valid C data type?',
+    options: ['enum', 'union', 'class', 'struct'],
+    correctAnswer: 2,
+    section: 'technical'
   },
   {
     id: 5,
-    question: 'What attribute specifies the URL of an image in HTML?',
-    options: ['href', 'src', 'alt', 'link'],
+    question: 'Which function is used to allocate memory dynamically in C?',
+    options: ['alloc()', 'malloc()', 'realloc()', 'calloc()'],
     correctAnswer: 1,
+    section: 'technical'
   },
   {
     id: 6,
-    question: 'Which HTML tag is used to create an unordered list?',
-    options: ['<ol>', '<ul>', '<li>', '<list>'],
-    correctAnswer: 1,
+    question: 'What operator is used for memory allocation in C++?',
+    options: ['alloc', 'malloc', 'new', 'create'],
+    correctAnswer: 2,
+    section: 'technical'
   },
   {
     id: 7,
-    question: 'What is the purpose of the <br> tag in HTML?',
-    options: [
-      'Bold text',
-      'Line break',
-      'Blockquote',
-      'Background reset',
-    ],
-    correctAnswer: 1,
+    question: 'What is a virtual function in C++?',
+    options: ['A function that can\'t be overridden', 'A function that must be implemented', 'A function declared in a base class that can be overridden', 'A function without a body'],
+    correctAnswer: 2,
+    section: 'technical'
   },
   {
     id: 8,
-    question: 'Which HTML tag defines the main content of a webpage?',
-    options: ['<main>', '<body>', '<section>', '<div>'],
-    correctAnswer: 0,
+    question: 'Which keyword is used to define a namespace in C++?',
+    options: ['space', 'namespace', 'define', 'using'],
+    correctAnswer: 1,
+    section: 'technical'
   },
   {
     id: 9,
-    question: 'What attribute is used to provide a unique identifier to an HTML element?',
-    options: ['class', 'id', 'name', 'type'],
+    question: 'Which of the following is a C++ specific comment style?',
+    options: ['/* */', '//', '#comment', '--'],
     correctAnswer: 1,
+    section: 'technical'
   },
   {
     id: 10,
-    question: 'Which HTML tag is used to include an external JavaScript file?',
-    options: ['<script>', '<link>', '<js>', '<code>'],
-    correctAnswer: 0,
+    question: 'What does the scope resolution operator (::) do in C++?',
+    options: ['Inherits a class', 'Accesses a global variable', 'Compares values', 'Creates a namespace'],
+    correctAnswer: 1,
+    section: 'technical'
   },
 
-  // Basic CSS - Questions 11-20
+  // Aptitude Assessment - Questions 11-20
   {
     id: 11,
-    question: 'Which CSS property changes the text color of an element?',
-    options: ['color', 'font-color', 'text-color', 'background-color'],
-    correctAnswer: 0,
+    question: 'If a car travels 300 kilometers in 4 hours, what is its average speed?',
+    options: ['60 km/h', '70 km/h', '75 km/h', '80 km/h'],
+    correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 12,
-    question: 'How do you apply a CSS style to all <p> elements?',
-    options: ['#p', '.p', 'p', '*p'],
+    question: 'A shopkeeper sells an item at 20% profit. If the cost price is $250, what is the selling price?',
+    options: ['$270', '$280', '$300', '$320'],
     correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 13,
-    question: 'Which CSS property sets the background color?',
-    options: [
-      'color',
-      'background-color',
-      'bg-color',
-      'background-style',
-    ],
+    question: 'If 8 workers can complete a task in 12 days, how many days will it take for 6 workers to complete the same task?',
+    options: ['9 days', '16 days', '18 days', '24 days'],
     correctAnswer: 1,
+    section: 'aptitude'
   },
   {
     id: 14,
-    question: 'How do you center text horizontally in CSS?',
-    options: [
-      'text-align: center;',
-      'align: center;',
-      'center: text;',
-      'text-position: center;',
-    ],
-    correctAnswer: 0,
+    question: 'What is the next number in the sequence: 2, 4, 8, 16, 32, ...?',
+    options: ['36', '48', '64', '128'],
+    correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 15,
-    question: 'Which CSS property controls the space between elements?',
-    options: ['padding', 'margin', 'border', 'spacing'],
-    correctAnswer: 1,
+    question: 'If the ratio of boys to girls in a class is 3:5 and there are 24 boys, how many students are there in total?',
+    options: ['40', '56', '64', '80'],
+    correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 16,
-    question: 'What does the CSS "display: block;" property do?',
-    options: [
-      'Hides the element',
-      'Makes it inline',
-      'Takes full width',
-      'Floats the element',
-    ],
-    correctAnswer: 2,
+    question: 'A train traveling at 60 km/h takes 15 minutes to pass through a tunnel. What is the length of the tunnel?',
+    options: ['10 km', '15 km', '20 km', '25 km'],
+    correctAnswer: 0,
+    section: 'aptitude'
   },
   {
     id: 17,
-    question: 'How do you select elements with a specific class in CSS?',
-    options: ['#class', '.class', 'class', '*class'],
-    correctAnswer: 1,
+    question: 'What is the compound interest on $1000 at 10% per annum for 2 years?',
+    options: ['$100', '$200', '$210', '$220'],
+    correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 18,
-    question: 'Which CSS unit represents a percentage of the parent element?',
-    options: ['px', 'em', '%', 'vw'],
+    question: 'If the area of a square is 64 square meters, what is its perimeter?',
+    options: ['16 meters', '24 meters', '32 meters', '64 meters'],
     correctAnswer: 2,
+    section: 'aptitude'
   },
   {
     id: 19,
-    question: 'What property sets the font family in CSS?',
-    options: [
-      'font-family',
-      'font-style',
-      'font-type',
-      'text-family',
-    ],
+    question: 'A mixture contains alcohol and water in the ratio 1:3. If 10 liters of water is added, the ratio becomes 1:5. How much alcohol is in the original mixture?',
+    options: ['5 liters', '10 liters', '15 liters', '20 liters'],
     correctAnswer: 0,
+    section: 'aptitude'
   },
   {
     id: 20,
-    question: 'How do you make an element invisible in CSS?',
-    options: [
-      'visibility: hidden;',
-      'display: none;',
-      'opacity: 0;',
-      'All of the above',
-    ],
-    correctAnswer: 3,
+    question: 'If x² + y² = 25 and x + y = 7, what is the value of xy?',
+    options: ['6', '12', '16', '24'],
+    correctAnswer: 1,
+    section: 'aptitude'
   },
 
-  // Basic JavaScript - Questions 21-30
+  // Logical Reasoning - Questions 21-30
   {
     id: 21,
-    question: 'How do you write a comment in JavaScript?',
-    options: [
-      '<!-- Comment -->',
-      '// Comment',
-      '# Comment',
-      '/* Comment */',
-    ],
+    question: 'If all roses are flowers and some flowers fade quickly, which statement must be true?',
+    options: ['All roses fade quickly', 'Some roses fade quickly', 'No roses fade quickly', 'All flowers are roses'],
     correctAnswer: 1,
+    section: 'logical'
   },
   {
     id: 22,
-    question: 'Which keyword declares a variable in JavaScript?',
-    options: ['var', 'int', 'string', 'declare'],
-    correctAnswer: 0,
+    question: 'What comes next in the sequence: J, F, M, A, M, J, ...?',
+    options: ['S', 'O', 'J', 'A'],
+    correctAnswer: 2,
+    section: 'logical'
   },
   {
     id: 23,
-    question: 'What is the output of console.log(5 + "5");?',
-    options: ['10', '55', '5', 'Error'],
-    correctAnswer: 1,
+    question: 'If CAT is coded as 312, how would DOG be coded?',
+    options: ['413', '423', '415', '435'],
+    correctAnswer: 0,
+    section: 'logical'
   },
   {
     id: 24,
-    question: 'How do you check the length of a string in JavaScript?',
-    options: ['str.length', 'str.size', 'str.count', 'str.len'],
-    correctAnswer: 0,
+    question: 'Which word does NOT belong with the others?',
+    options: ['Rectangle', 'Triangle', 'Circle', 'Oval'],
+    correctAnswer: 1,
+    section: 'logical'
   },
   {
     id: 25,
-    question: 'Which operator checks for equality in value and type in JavaScript?',
-    options: ['=', '==', '===', '!='],
-    correctAnswer: 2,
+    question: 'If A = 1, B = 2, C = 3, etc., what is the value of LOGIC?',
+    options: ['49', '50', '51', '52'],
+    correctAnswer: 0,
+    section: 'logical'
   },
   {
     id: 26,
-    question: 'What is the correct syntax for an if statement in JavaScript?',
-    options: [
-      'if (x > 5) { }',
-      'if x > 5 { }',
-      'if (x > 5) then { }',
-      'if {x > 5}',
-    ],
-    correctAnswer: 0,
+    question: 'All elephants are gray. Some animals are gray. Therefore:',
+    options: ['All animals are elephants', 'All gray animals are elephants', 'Some animals are elephants', 'No valid conclusion'],
+    correctAnswer: 3,
+    section: 'logical'
   },
   {
     id: 27,
-    question: 'How do you create a function in JavaScript?',
-    options: [
-      'function myFunc() { }',
-      'func myFunc() { }',
-      'myFunc() { }',
-      'function: myFunc() { }',
-    ],
-    correctAnswer: 0,
+    question: 'What number is missing: 1, 4, 9, 16, 25, ?',
+    options: ['30', '36', '42', '49'],
+    correctAnswer: 1,
+    section: 'logical'
   },
   {
     id: 28,
-    question: 'What method adds an element to the end of an array in JavaScript?',
-    options: ['push()', 'pop()', 'shift()', 'unshift()'],
-    correctAnswer: 0,
+    question: 'If FRIEND is coded as GSJFOE, how is CANDLE coded?',
+    options: ['DBEOMF', 'DCOFMF', 'EQPFNG', 'DBOEMF'],
+    correctAnswer: 3,
+    section: 'logical'
   },
   {
     id: 29,
-    question: 'How do you access the first element of an array in JavaScript?',
-    options: ['array[0]', 'array[1]', 'array.first', 'array.start'],
+    question: 'Which figure completes the pattern?',
+    options: ['Square', 'Triangle', 'Circle', 'Pentagon'],
     correctAnswer: 0,
+    section: 'logical'
   },
   {
     id: 30,
-    question: 'What will console.log(typeof "hello"); return?',
-    options: ['number', 'string', 'boolean', 'object'],
-    correctAnswer: 1,
+    question: 'If today is Tuesday, what day will it be after 100 days?',
+    options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    correctAnswer: 2,
+    section: 'logical'
   },
 
-  // Basic Web Concepts (HTML/CSS/JS Mix) - Questions 31-40
+  // Personality Assessment - Questions 31-40
   {
     id: 31,
-    question: 'Which tag embeds CSS directly in an HTML file?',
-    options: ['<style>', '<css>', '<script>', '<link>'],
+    question: 'When faced with a challenging problem, I usually:',
+    options: ['Break it down into smaller parts', 'Ask others for help immediately', 'Research similar problems online', 'Try different approaches through trial and error'],
     correctAnswer: 0,
+    section: 'personality'
   },
   {
     id: 32,
-    question: 'How do you change an element’s text in JavaScript?',
-    options: [
-      'element.innerHTML',
-      'element.text',
-      'element.value',
-      'element.content',
-    ],
+    question: 'In a team setting, I prefer to:',
+    options: ['Take the lead and delegate tasks', 'Contribute ideas but let others lead', 'Focus on my individual responsibilities', 'Mediate between different opinions'],
     correctAnswer: 0,
+    section: 'personality'
   },
   {
     id: 33,
-    question: 'What CSS property adds space inside an element?',
-    options: ['margin', 'padding', 'border', 'gap'],
-    correctAnswer: 1,
+    question: 'When learning something new, I typically:',
+    options: ['Read theoretical materials first', 'Watch someone else do it', 'Jump in and learn by doing', 'Talk through the process with others'],
+    correctAnswer: 2,
+    section: 'personality'
   },
   {
     id: 34,
-    question: 'Which HTML attribute specifies a text description for an image?',
-    options: ['src', 'alt', 'title', 'desc'],
+    question: 'When receiving criticism, I usually:',
+    options: ['Take it personally and feel hurt', 'Analyze it objectively for improvement', 'Defend my actions or decisions', 'Ignore it if I disagree'],
     correctAnswer: 1,
+    section: 'personality'
   },
   {
     id: 35,
-    question: 'What JavaScript method displays a popup with a message?',
-    options: ['alert()', 'prompt()', 'confirm()', 'log()'],
-    correctAnswer: 0,
+    question: 'In a social gathering, I tend to:',
+    options: ['Talk to as many people as possible', 'Stick with people I already know', 'Find one or two people for deeper conversations', 'Observe others more than participate'],
+    correctAnswer: 2,
+    section: 'personality'
   },
   {
     id: 36,
-    question: 'Which CSS property aligns items vertically?',
-    options: [
-      'vertical-align',
-      'align-items',
-      'text-align',
-      'position',
-    ],
-    correctAnswer: 0,
+    question: 'When making decisions, I typically:',
+    options: ['Go with my gut feeling', 'Analyze all possible outcomes', 'Consider how it affects others', 'Follow established procedures'],
+    correctAnswer: 1,
+    section: 'personality'
   },
   {
     id: 37,
-    question: 'How do you get an element by its ID in JavaScript?',
-    options: [
-      'document.getElementById()',
-      'document.querySelector()',
-      'document.getElementsByClass()',
-      'document.id()',
-    ],
+    question: 'When dealing with deadlines, I:',
+    options: ['Complete tasks well ahead of time', 'Work steadily to finish just in time', 'Work intensely as the deadline approaches', 'Often need extensions'],
     correctAnswer: 0,
+    section: 'personality'
   },
   {
     id: 38,
-    question: 'Which HTML tag creates a table row?',
-    options: ['<tr>', '<td>', '<th>', '<table>'],
-    correctAnswer: 0,
+    question: 'My workspace is usually:',
+    options: ['Very organized and tidy', 'Somewhat organized with some clutter', 'Disorganized but I know where things are', 'Very messy and chaotic'],
+    correctAnswer: 1,
+    section: 'personality'
   },
   {
     id: 39,
-    question: 'What CSS value makes text italic?',
-    options: [
-      'font-style: italic;',
-      'font-weight: italic;',
-      'text-style: italic;',
-      'style: italic;',
-    ],
-    correctAnswer: 0,
+    question: 'When plans change unexpectedly, I typically:',
+    options: ['Get frustrated and resist the change', 'Adapt quickly and move on', 'Need time to adjust but eventually accept it', 'Try to return to the original plan'],
+    correctAnswer: 1,
+    section: 'personality'
   },
   {
     id: 40,
-    question: 'What will console.log(10 > 5); return in JavaScript?',
-    options: ['true', 'false', '10', '5'],
-    correctAnswer: 0,
+    question: 'In terms of work-life balance, I prioritize:',
+    options: ['Work achievements over personal time', 'Equal importance to both work and personal life', 'Personal life over work responsibilities', 'Varies depending on current priorities'],
+    correctAnswer: 1,
+    section: 'personality'
   },
 ];

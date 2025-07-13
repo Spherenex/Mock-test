@@ -256,16 +256,38 @@ export const AdminCamera = ({ results }) => {
     }
   };
   
+  // Mock video source for testing (when no real camera feed is available)
+  const createMockVideoStream = (userId) => {
+    // Create a simple canvas to use as mock video source
+    const canvas = document.createElement('canvas');
+    canvas.width = 320;
+    canvas.height = 240;
+    const ctx = canvas.getContext('2d');
+    
+    // Draw a colored background with the user's initial
+    ctx.fillStyle = getRandomColor();
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'white';
+    ctx.font = '80px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(userId.charAt(0).toUpperCase(), canvas.width/2, canvas.height/2);
+    
+    // Create a stream from the canvas
+    const stream = canvas.captureStream(10); // 10 fps
+    return stream;
+  };
+  
+  // Generate a random color for mock video
+  const getRandomColor = () => {
+    const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+  
   const getNoiseStatusClass = (level) => {
     if (level < 30) return 'noise-low';
     if (level < 70) return 'noise-medium';
     return 'noise-high';
-  };
-  
-  // Find user details from results
-  const getUserDetails = (userId) => {
-    const result = results.find(r => r.user === userId);
-    return result || { user: userId };
   };
 
   return (
@@ -317,10 +339,22 @@ export const AdminCamera = ({ results }) => {
                       muted
                     />
                   ) : (
-                    <div className="camera-disabled">
-                      <VideoOff size={32} />
-                      <span>Camera Disabled</span>
-                    </div>
+                    <video
+                      ref={el => {
+                        // Use mock stream when real stream is not available
+                        if (el) {
+                          const mockStream = getMockVideoStream(userId);
+                          if (el.srcObject !== mockStream) {
+                            el.srcObject = mockStream;
+                            el.play().catch(e => console.error('Error playing mock video:', e));
+                          }
+                        }
+                      }}
+                      className="video-feed"
+                      autoPlay
+                      playsInline
+                      muted
+                    />
                   )}
                   <div className={`noise-indicator ${getNoiseStatusClass(noiseLevel)}`}>
                     <Volume2 size={16} />

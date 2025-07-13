@@ -2620,60 +2620,60 @@ export const TestInterface = ({ user, onComplete }) => {
         }
     };
 
-    const renderInstructions = () => (
-        <div className="instructions-container">
-            <h2 className="instructions-title">Test Instructions</h2>
-            <div className="instruction-section">
-                <h3>Test Structure</h3>
-                <ul>
-                    <li>The test consists of 40 questions divided into 4 sections:</li>
-                    <li>Technical Knowledge (10 questions)</li>
-                    <li>Aptitude Assessment (10 questions)</li>
-                    <li>Logical Reasoning (10 questions)</li>
-                    <li>Personality Assessment (10 questions)</li>
-                </ul>
-            </div>
-            <div className="instruction-section">
-                <h3>Time Limit</h3>
-                <ul>
-                    <li>Total duration: 60 minutes</li>
-                    <li>Recommended time per section: 15 minutes</li>
-                    <li>Timer will be visible throughout the test</li>
-                    <li>Test auto-submits when time expires</li>
-                </ul>
-            </div>
-            <div className="instruction-section">
-                <h3>Important Rules</h3>
-                <ul>
-                    <li>Questions are randomized within each section</li>
-                    <li>All questions are mandatory</li>
-                    <li>You can review your answers before final submission</li>
-                    <li>Ensure stable internet connection throughout the test</li>
-                    <li>Window switching is monitored and recorded</li>
-                    <li>Your camera and microphone will be monitored for test integrity</li>
-                    <li>Excessive noise or tab violations will result in test termination</li>
-                </ul>
-            </div>
-            <div className="confirmation-checkbox">
-                <input
-                    type="checkbox"
-                    id="instructions-confirmation"
-                    checked={hasReadInstructions}
-                    onChange={(e) => setHasReadInstructions(e.target.checked)}
-                />
-                <label htmlFor="instructions-confirmation">
-                    I have read and understood all instructions
-                </label>
-            </div>
-            <button
-                className="start-button"
-                disabled={!hasReadInstructions}
-                onClick={() => setStage(TEST_STAGES.CONFIRMATION)}
-            >
-                Start Test
-            </button>
-        </div>
-    );
+const renderInstructions = () => (
+  <div className="instructions-container">
+    <h2 className="instructions-title">Test Instructions</h2>
+    <div className="instruction-section">
+      <h3>Test Structure</h3>
+      <ul>
+        <li>The test consists of 40 questions divided into 4 sections:</li>
+        <li>Technical Knowledge (10 questions)</li>
+        <li>Aptitude Assessment (10 questions)</li>
+        <li>Logical Reasoning (10 questions)</li>
+        <li>Personality Assessment (10 questions)</li>
+      </ul>
+    </div>
+    <div className="instruction-section">
+      <h3>Time Limit</h3>
+      <ul>
+        <li>Total duration: 60 minutes</li>
+        <li>Recommended time per section: 15 minutes</li>
+        <li>Timer will be visible throughout the test</li>
+        <li>Test auto-submits when time expires</li>
+      </ul>
+    </div>
+    <div className="instruction-section">
+      <h3>Important Rules</h3>
+      <ul>
+        <li>Questions are randomized within each section</li>
+        <li>All questions are mandatory</li>
+        <li>You can review your answers before final submission</li>
+        <li>Ensure stable internet connection throughout the test</li>
+        <li>Window switching is monitored and recorded</li>
+        <li>Your camera and microphone will be monitored for test integrity</li>
+        <li>Excessive noise or tab violations will result in test termination</li>
+      </ul>
+    </div>
+    <div className="confirmation-checkbox">
+      <input
+        type="checkbox"
+        id="instructions-confirmation"
+        checked={hasReadInstructions}
+        onChange={(e) => setHasReadInstructions(e.target.checked)}
+      />
+      <label htmlFor="instructions-confirmation">
+        I have read and understood all instructions
+      </label>
+    </div>
+    <button
+      className="start-button"
+      disabled={!hasReadInstructions}
+      onClick={() => setStage(TEST_STAGES.CONFIRMATION)}
+    >
+      Start Test
+    </button>
+  </div>
+);
 
     const renderConfirmation = () => (
         <div className="confirmation-container">
