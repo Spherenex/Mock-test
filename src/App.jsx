@@ -50,7 +50,7 @@
 
 //     try {
 //       await addDoc(collection(db, 'results'), updatedResult);
-      
+
 //       // If admin is viewing, refresh the results
 //       if (user?.type === 'admin') {
 //         fetchResults();
@@ -128,63 +128,63 @@ const App = () => {
       console.error('Error fetching results:', error);
     }
   };
-  
-const fetchTerminatedUsers = async () => {
-  try {
-    // Check if the 'admin' collection and 'terminatedUsers' document exist
-    const adminCollectionRef = collection(db, 'admin');
-    const terminatedUsersRef = doc(adminCollectionRef, 'terminatedUsers');
-    
-    const terminatedUsersDoc = await getDoc(terminatedUsersRef);
-    
-    if (terminatedUsersDoc.exists()) {
-      setTerminatedUsers(terminatedUsersDoc.data().usernames || []);
-    } else {
-      // Create the document if it doesn't exist
-      await setDoc(terminatedUsersRef, { usernames: [] });
-      setTerminatedUsers([]);
-    }
-  } catch (error) {
-    console.error('Error fetching terminated users:', error);
-    // Continue with empty array to not block the app
-    setTerminatedUsers([]);
-  }
-};
 
-const handleLogin = async (userData) => {
-  setLoginError(null);
-  
-  // Check if user is in the terminated list
-  if (userData.type === 'employee') {
+  const fetchTerminatedUsers = async () => {
     try {
-      // Create the 'admin' collection and 'terminatedUsers' document if they don't exist
-      try {
-        const terminatedUsersRef = doc(db, 'admin', 'terminatedUsers');
-        const terminatedUsersDoc = await getDoc(terminatedUsersRef);
-        
-        if (terminatedUsersDoc.exists()) {
-          const terminatedList = terminatedUsersDoc.data().usernames || [];
-          if (terminatedList.includes(userData.username)) {
-            setLoginError('Your account has been locked due to test integrity violations. Please contact your administrator.');
-            return;
-          }
-        } else {
-          // Create the document with an empty array if it doesn't exist
-          await setDoc(terminatedUsersRef, { usernames: [] });
-        }
-      } catch (error) {
-        console.error('Error checking terminated users:', error);
-        // If we can't check the terminated list, log the error but still let the user log in
-        // In a production app, you might want to be more strict about this
+      // Check if the 'admin' collection and 'terminatedUsers' document exist
+      const adminCollectionRef = collection(db, 'admin');
+      const terminatedUsersRef = doc(adminCollectionRef, 'terminatedUsers');
+
+      const terminatedUsersDoc = await getDoc(terminatedUsersRef);
+
+      if (terminatedUsersDoc.exists()) {
+        setTerminatedUsers(terminatedUsersDoc.data().usernames || []);
+      } else {
+        // Create the document if it doesn't exist
+        await setDoc(terminatedUsersRef, { usernames: [] });
+        setTerminatedUsers([]);
       }
     } catch (error) {
-      console.error('Outer error checking terminated users:', error);
+      console.error('Error fetching terminated users:', error);
+      // Continue with empty array to not block the app
+      setTerminatedUsers([]);
     }
-  }
-  
-  // Proceed with login
-  setUser(userData);
-};
+  };
+
+  const handleLogin = async (userData) => {
+    setLoginError(null);
+
+    // Check if user is in the terminated list
+    if (userData.type === 'employee') {
+      try {
+        // Create the 'admin' collection and 'terminatedUsers' document if they don't exist
+        try {
+          const terminatedUsersRef = doc(db, 'admin', 'terminatedUsers');
+          const terminatedUsersDoc = await getDoc(terminatedUsersRef);
+
+          if (terminatedUsersDoc.exists()) {
+            const terminatedList = terminatedUsersDoc.data().usernames || [];
+            if (terminatedList.includes(userData.username)) {
+              setLoginError('Your account has been locked due to test integrity violations. Please contact your administrator.');
+              return;
+            }
+          } else {
+            // Create the document with an empty array if it doesn't exist
+            await setDoc(terminatedUsersRef, { usernames: [] });
+          }
+        } catch (error) {
+          console.error('Error checking terminated users:', error);
+          // If we can't check the terminated list, log the error but still let the user log in
+          // In a production app, you might want to be more strict about this
+        }
+      } catch (error) {
+        console.error('Outer error checking terminated users:', error);
+      }
+    }
+
+    // Proceed with login
+    setUser(userData);
+  };
   const handleLogout = () => {
     setUser(null);
     setResults([]);
@@ -192,8 +192,8 @@ const handleLogin = async (userData) => {
   };
 
   const handleTestComplete = async (result) => {
-    const updatedResult = { 
-      ...result, 
+    const updatedResult = {
+      ...result,
       date: new Date().toISOString(),
       timestamp: new Date() // Adding timestamp for Firebase ordering
     };
@@ -201,23 +201,23 @@ const handleLogin = async (userData) => {
     try {
       // Add the test result
       await addDoc(collection(db, 'results'), updatedResult);
-      
+
       // If the test was terminated, add user to terminated list
       if (result.submittedBy === 'terminated') {
         const terminatedUsersDoc = await getDoc(doc(db, 'admin', 'terminatedUsers'));
         let terminatedList = [];
-        
+
         if (terminatedUsersDoc.exists()) {
           terminatedList = terminatedUsersDoc.data().usernames || [];
         }
-        
+
         // Add user to terminated list if not already in it
         if (!terminatedList.includes(user.username)) {
           terminatedList.push(user.username);
           await setDoc(doc(db, 'admin', 'terminatedUsers'), { usernames: terminatedList });
         }
       }
-      
+
       // If admin is viewing, refresh the results
       if (user?.type === 'admin') {
         fetchResults();
@@ -234,10 +234,10 @@ const handleLogin = async (userData) => {
       const querySnapshot = await getDocs(collection(db, 'results'));
       const deletePromises = querySnapshot.docs.map(doc => deleteDoc(doc.ref));
       await Promise.all(deletePromises);
-      
+
       // Reset terminated users list
       await setDoc(doc(db, 'admin', 'terminatedUsers'), { usernames: [] });
-      
+
       // Update state
       setResults([]);
       setTerminatedUsers([]);
@@ -257,7 +257,10 @@ const handleLogin = async (userData) => {
         {user.type === 'admin' ? (
           <AdminDashboard results={results} onReset={handleReset} />
         ) : (
-          <TestInterface user={user} onComplete={handleTestComplete} scheduledStartTime="2025-07-14T11:25:00" />
+          <TestInterface user={user} onComplete={handleTestComplete} scheduledStartTime="2025-07-13T17:23:00"
+            testAlreadyCompleted={
+              localStorage.getItem(`test_completed_${user.id || user.username || user.name}`) === 'true'
+            } />
         )}
       </main>
     </div>
