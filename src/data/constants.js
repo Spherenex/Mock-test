@@ -63,7 +63,7 @@ export const DEFAULT_CREDENTIALS = {
     { username: 'madhavaraj714@gmail.com', password: 'Madhava@123', name: 'MADHAVA RAJ B' },
     { username: 'krishnavarshitha388@gmail.com', password: 'Varshitha@123', name: 'VARSHITHA K' },
     { username: 'Pavinayak0225@gmail.com', password: 'Pavitra@123', name: 'Pavitra' },
-    { username: 'Test', password: 'test123', name: 'Test' },
+    { username: 'Test2', password: 'test123', name: 'Test' },
   ],
 };
 
