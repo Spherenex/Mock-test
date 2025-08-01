@@ -257,7 +257,7 @@ const App = () => {
         {user.type === 'admin' ? (
           <AdminDashboard results={results} onReset={handleReset} />
         ) : (
-          <TestInterface user={user} onComplete={handleTestComplete} scheduledStartTime="2025-07-31T12:00:00"
+          <TestInterface user={user} onComplete={handleTestComplete} scheduledStartTime="2025-08-02T12:00:00"
             testAlreadyCompleted={
               localStorage.getItem(`test_completed_${user.id || user.username || user.name}`) === 'true'
             } />
